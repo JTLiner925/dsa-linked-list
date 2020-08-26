@@ -34,9 +34,9 @@ class Stack {
 
   isEmpty(){
     if(this.top !== null){
-      return;
+      return true;
     } else {
-      console.log('stack is empty');
+      return false;
     }
   }
 }

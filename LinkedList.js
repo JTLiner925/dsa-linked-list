@@ -74,14 +74,13 @@ class LinkedList {
       previousNode = currNode;
       currNode = currNode.next;
       console.log(currNode.value, previousNode.value);
-
     }
     if (currNode === null) {
       console.log('Item not found');
       return;
     }
 
-    previousNode.next = new _Node( item, currNode);
+    previousNode.next = new _Node(item, currNode);
   }
   insertAfter(item, afterItem) {
     if (!this.head) {
@@ -99,15 +98,15 @@ class LinkedList {
       previousNode = currNode;
       currNode = currNode.next;
       console.log(currNode.value, previousNode.value);
-
     }
     if (currNode === null) {
       console.log('Item not found');
       return;
     }
 
-    currNode.next = new _Node( item, currNode.next);
+    currNode.next = new _Node(item, currNode.next);
   }
+  insertMiddle() {}
   remove(item) {
     //if no items in the list return null
     if (!this.head) {
@@ -147,10 +146,34 @@ class LinkedList {
 
     previousNode.next = currNode.next;
   }
+  size() {
+    let count = 0;
+
+    if (!this.head) {
+      return count;
+    }
+    let currNode = this.head;
+    while (currNode !== null) {
+      currNode = currNode.next;
+      count++;
+    }
+    return count;
+  }
+
+  isEmpty() {
+    return this.head === null;
+  }
+}
+function findThirdFromEnd(list){
+  if (list.size() < 3) {
+    return null;
+  }
+
+
 }
 function main() {
   let list = new LinkedList();
-
+  let newList = new LinkedList();
   list.insertFirst('Apollo');
   list.insertFirst('Boomer');
   list.insertFirst('Helo');
@@ -158,8 +181,12 @@ function main() {
   list.insertFirst('Starbuck');
   list.insertFirst('Tauhida');
   list.remove('Husker');
-  list.insertBefore( 'Athena', 'Tauhida');
+  list.insertBefore('Athena', 'Tauhida');
   list.insertAfter('Yikes', 'Helo');
-  console.log(list);
+  newList.isEmpty();
+  // newList.size();
+  // list.size();
+  console.log(list.size());
+  console.log(newList.size());
 }
 main();
